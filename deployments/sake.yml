@@ -1,0 +1,66 @@
+servers:
+  node1:
+    user: stackops
+    identity_file: ~/.ssh/BlockChain.pem
+    host: 61.28.229.80
+    port: 234
+  node2:
+    user: stackops
+    identity_file: ~/.ssh/BlockChain.pem
+    host: 61.28.229.169
+    port: 234
+  node3:
+    user: stackops
+    identity_file: ~/.ssh/BlockChain.pem
+    host: 103.245.249.30
+    port: 234
+  node4:
+    user: stackops
+    identity_file: ~/.ssh/BlockChain.pem
+    host: 103.245.249.54
+    port: 234
+  node5:
+    user: stackops
+    identity_file: ~/.ssh/BlockChain.pem
+    host: 103.245.249.215
+    port: 234
+
+tasks:
+  stop:
+    cmd: sudo service gwemix stop && echo success
+  start:
+    cmd: sudo service gwemix start && echo success
+  wipe:
+    cmd: cd ~/wemix && rm -rf geth/ etcd/ logs/
+  restart:
+    tasks:
+      - task: stop
+      - task: start
+  reset:
+    tasks:
+      - task: stop
+      - task: wipe
+      - task: start
+  update-service:
+    cmd: sudo cp ~/wemix/gwemix.service /etc/systemd/system && sudo systemctl daemon-reload
+  logs:
+    cmd: journalctl -fu gwemix
+  attach:
+    tty: true
+    cmd: ssh -t $SAKE_SERVER_HOST "cd ~/wemix && ./bin/gwemix attach gwemix.ipc"
+  upload-config:
+    local: true
+    cmd: rsync -Pav gcloud/$SAKE_SERVER_NAME/.rc $SAKE_SERVER_HOST:~/wemix/.rc
+  upload-template:
+    local: true
+    cmd: rsync -Pav --delete ./template/ $SAKE_SERVER_HOST:~/binance/
+  peer-count:
+    cmd: cd ~/wemix && ./bin/gwemix attach gwemix.ipc --exec 'admin.peers.length' 2>/dev/null
+  get-block:
+    cmd: cd ~/wemix; ./bin/gwemix attach gwemix.ipc --exec 'eth.blockNumber' 2>/dev/null
+  upload:
+    tasks:
+      - task: upload-template
+      - task: upload-config
+  ping:
+    cmd: echo Pong!

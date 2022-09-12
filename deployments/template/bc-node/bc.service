@@ -1,0 +1,19 @@
+[Unit]
+Description=bc
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=stackops
+Group=stackops
+MemoryLimit=30G
+Environment=DATA_DIR=/home/stackops/binance/bc-node
+ExecStart=/home/stackops/binance/binance/bc-node/run.sh
+KillMode=process
+KillSignal=SIGINT
+TimeoutStopSec=60
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=default.target
