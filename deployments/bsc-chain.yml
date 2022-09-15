@@ -1,0 +1,48 @@
+version: "3.5"
+services:
+  bsc-node1:
+    image: bsc-node:latest
+    container_name: bsc-node1
+    environment:
+      - NODE_KEY=bd553ac45d404f186fde6bae78cceb6a887a51fc861691cd06d6bbe6fe76e8e7
+      - UNLOCK_ACCOUNT=0x7b2419e0ee0bd034f7bf24874c12512acac6e21c
+    ports:
+      - 8545:8545
+      - 8546:8546
+    networks:
+      binance:
+        ipv4_address: 172.18.2.1
+
+  bsc-node2:
+    image: bsc-node:latest
+    container_name: bsc-node2
+    environment:
+      - NODE_KEY=1c2dab540cd33dcd7891ac9c0ec40d0844ffe698b498b065e58690849866d6c6
+      - UNLOCK_ACCOUNT=0x75c9da4fa2946c69f29c815a71b74aed8e666cf5
+    networks:
+      binance:
+        ipv4_address: 172.18.2.2
+
+  bsc-node3:
+    image: bsc-node:latest
+    container_name: bsc-node3
+    environment:
+      - NODE_KEY=50ccff5ec87428e94c33ad3b55d40b4f13cd6a50258eb7bb42e17701d077c131
+      - UNLOCK_ACCOUNT=0x9f2218d53a94ff958ef71166243ad10c4c462987
+    networks:
+      binance:
+        ipv4_address: 172.18.2.3
+
+  bsc-node4:
+    image: bsc-node:latest
+    container_name: bsc-node4
+    environment:
+      - NODE_KEY=e77c9ea51e985e618fe92013a33e338825f94252426996b2256f10f9b47d0add
+      - UNLOCK_ACCOUNT=0xbfadc8b8497d4db8abf422abc7814a90e29f6e08
+    networks:
+      binance:
+        ipv4_address: 172.18.2.4
+
+networks:
+  binance:
+    external: true

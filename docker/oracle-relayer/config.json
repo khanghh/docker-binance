@@ -1,0 +1,49 @@
+{
+  "db_config": {
+    "dialect": "mysql",
+    "db_path": "root:Aa123456@(mariadb:3306)/oracle_relayer?charset=utf8&parseTime=True&loc=Local"
+  },
+  "chain_config": {
+    "bsc_start_height": 1,
+    "bsc_providers": [
+      "http://172.18.2.1:8545",
+      "http://172.18.2.2:8545",
+      "http://172.18.2.3:8545",
+      "http://172.18.2.4:8545"
+    ],
+    "bsc_confirm_num": 2,
+    "bsc_cross_chain_contract_address": "0x0000000000000000000000000000000000001004",
+    "bbc_rpc_addrs": [
+      "http://172.18.1.1:26657",
+      "http://172.18.1.2:26657",
+      "http://172.18.1.3:26657",
+      "http://172.18.1.4:26657"
+    ],
+    "bbc_key_type": "mnemonic",
+    "bbc_aws_region": "",
+    "bbc_aws_secret_name": "",
+    "bbc_mnemonic": "vacuum either winter explain kite predict patrol spice wealth ethics question clay sea cube day connect creek ticket pen begin gown siege cheap leopard",
+    "relay_interval": 1000
+  },
+  "log_config": {
+    "level": "INFO",
+    "filename": "",
+    "max_file_size_in_mb": 0,
+    "max_backups_of_log_files": 0,
+    "max_age_to_retain_log_files_in_days": 0,
+    "use_console_logger": true,
+    "use_file_logger": false,
+    "compress": false
+  },
+  "admin_config": {
+    "listen_addr": ":8080"
+  },
+  "alert_config": {
+    "moniker": "moniker",
+    "telegram_bot_id": "",
+    "telegram_chat_id": "",
+    "pager_duty_auth_token": "",
+    "block_update_time_out": 60,
+    "package_delay_alert_threshold": 30
+  }
+}

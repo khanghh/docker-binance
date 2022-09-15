@@ -1,0 +1,38 @@
+[
+  {
+    "moniker": "bbc-node1",
+    "chain_id": "Beacon-Chain-Test",
+    "node_id": "0e432ddd6dace9492c617f107359d591cdff5d5b",
+    "pub_key": "bcap1zcjduepqskdgfhd5xgs7yd7xcwuytd2mpeyqrg8urnkv3hxl076mgex4v6rsqqut6p",
+    "app_message": {
+      "secret": "mom eternal soup clap body super boring gentle improve delay vacant fury never crime seminar kick urban couple account knee invest common client anxiety"
+    }
+  },
+  {
+    "moniker": "bbc-node2",
+    "chain_id": "Beacon-Chain-Test",
+    "node_id": "94abeadf5d8b17411108c44288302bbf6caba018",
+    "pub_key": "bcap1zcjduepqmuep8zrc24l7j7zr4cgv666wyesyjt78c7g9qnfspte9cfpv4efscx8th0",
+    "app_message": {
+      "secret": "moment pave brother bus resemble employ hurt cart wait twin tissue essay arrest swallow volcano flat place pizza giant wise love excuse army image"
+    }
+  },
+  {
+    "moniker": "bbc-node3",
+    "chain_id": "Beacon-Chain-Test",
+    "node_id": "9f816f614be8537fd3dcdc20b21a5bbc45048e53",
+    "pub_key": "bcap1zcjduepqradqrja5d8tw0s264nyzev62wclyw6p5gk0f5mf6a5d4m2p6tjuseegy8e",
+    "app_message": {
+      "secret": "service dish around lazy south tube prefer put orbit alone detail giraffe ancient fashion fox execute brick bulb select sponsor sock year mean suit"
+    }
+  },
+  {
+    "moniker": "bbc-node4",
+    "chain_id": "Beacon-Chain-Test",
+    "node_id": "d7539398cf2fb30e25e3cbdbc936a1e633fa3b90",
+    "pub_key": "bcap1zcjduepqvhp73040wwnmlx3d02ctqyva7qw5tuuw25hd7f8dhy87chxc8lrsed27cn",
+    "app_message": {
+      "secret": "hand pear guard belt income disagree source gentle label print anger smoke prosper any swear piece predict knife accident cement ensure doctor census cave"
+    }
+  }
+]

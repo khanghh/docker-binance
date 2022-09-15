@@ -1,0 +1,86 @@
+[Eth]
+NetworkId = 123
+SyncMode = "full"
+DisablePeerTxBroadcast = false
+EthDiscoveryURLs = []
+SnapDiscoveryURLs = []
+NoPruning = false
+NoPrefetch = false
+TxLookupLimit = 2350000
+LightServ = 100    # percentage cpu time for serving LES request
+LightIngress = 0   # unlimited bandwidth (kbps)
+LightEgress = 0    # unlimited bandwidth (kbps)
+LightPeers = 50    # number of light peers
+UltraLightFraction = 75
+DatabaseCache = 512
+DatabaseFreezer = ""
+DatabaseDiff = ""
+TrieCleanCache = 154
+TrieCleanCacheJournal = "triecache"
+TrieCleanCacheRejournal = 3600000000000
+TrieDirtyCache = 256
+TrieTimeout = 3600000000000
+TriesInMemory = 128
+SnapshotCache = 102
+Preimages = false
+PersistDiff = false
+DiffBlock = 86400
+EnablePreimageRecording = false
+
+[Eth.Miner]
+GasFloor = 40000000
+GasCeil = 40000000
+#GasPrice = 5000000000
+GasPrice = 0
+Recommit = 10000000000
+Noverify = false
+
+[Eth.TxPool]
+Locals = []
+NoLocals = true
+Journal = "transactions.rlp"
+Rejournal = 3600000000000
+#PriceLimit = 5000000000
+PriceLimit = 0
+PriceBump = 10
+AccountSlots = 512
+AccountQueue = 256
+GlobalSlots = 10000
+GlobalQueue = 5000
+#AccountSlots = 5000
+#AccountQueue = 10000
+#GlobalSlots = 100000
+#GlobalQueue = 50000
+Lifetime = 1200000000000 # 20 minutes
+
+[Eth.GPO]
+Blocks = 20
+Percentile = 60
+OracleThreshold = 20
+#Default = 5000000000
+
+[Node]
+IPCPath = "geth.ipc"
+InsecureUnlockAllowed = true
+HTTPHost = "0.0.0.0"
+HTTPPort = 8545
+HTTPVirtualHosts = ["*"]
+HTTPModules = ["debug", "eth", "net", "web3", "txpool", "parlia"]
+WSHost = "0.0.0.0"
+WSPort = 8546
+WSModules = ["debug", "eth", "net", "web3", "txpool", "parlia"]
+AllowUnprotectedTxs = true
+
+[Node.P2P]
+MaxPeers = 100
+NoDiscovery = true
+DiscoveryV5 = true
+BootstrapNodes = []
+TrustedNodes = []
+ListenAddr = ":30303"
+EnableMsgEvents = false
+
+[Node.HTTPTimeouts]
+ReadTimeout = 30000000000
+WriteTimeout = 30000000000
+IdleTimeout = 120000000000

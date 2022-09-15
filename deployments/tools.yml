@@ -1,0 +1,50 @@
+version: "3.5"
+services:
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      - PMA_HOST=mariadb
+    ports:
+      - 8888:80
+    networks:
+      binance:
+        ipv4_address: 172.18.4.1
+
+  postgres:
+    image: postgres:13.6
+    container_name: "postgres"
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: "Aa123456"
+      POSTGRES_USER: "admin"
+    networks:
+      binance:
+        ipv4_address: 172.18.4.2
+
+  blockscout:
+    depends_on:
+      - postgres
+    image: blockscout:latest
+    container_name: "blockscout"
+    links:
+      - postgres:database
+    command: "mix do ecto.drop --force, ecto.create, ecto.migrate, phx.server"
+    env_file:
+      - ./blockscout.env
+    environment:
+      - ETHEREUM_JSONRPC_VARIANT=geth
+      - ETHEREUM_JSONRPC_HTTP_URL=http://172.18.2.1:8545
+      - ETHEREUM_JSONRPC_WS_URL=ws://172.18.2.1:8546
+      - DATABASE_URL=postgresql://admin:Aa123456@postgres:5432/blockscout?ssl=false
+      - ECTO_USE_SSL=false
+    ports:
+      - 4000:4000
+    networks:
+      binance:
+        ipv4_address: 172.18.4.3
+
+networks:
+  binance:
+    external: true

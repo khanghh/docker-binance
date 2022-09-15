@@ -1,0 +1,55 @@
+version: "3.5"
+services:
+  bbc-node1:
+    image: bbc-node:latest
+    container_name: bbc-node1
+    env_file:
+      - bbc-node.env
+    environment:
+      - MONIKER=bbc-node1
+    ports:
+      - 26656:26656
+      - 26657:26657
+    networks:
+      binance:
+        ipv4_address: 172.18.1.1
+
+  bbc-node2:
+    image: bbc-node:latest
+    container_name: bbc-node2
+    env_file:
+      - bbc-node.env
+    environment:
+      - MONIKER=bbc-node2
+    networks:
+      binance:
+        ipv4_address: 172.18.1.2
+
+  bbc-node3:
+    image: bbc-node:latest
+    container_name: bbc-node3
+    env_file:
+      - bbc-node.env
+    environment:
+      - MONIKER=bbc-node3
+    networks:
+      binance:
+        ipv4_address: 172.18.1.3
+
+  bbc-node4:
+    image: bbc-node:latest
+    container_name: bbc-node4
+    env_file:
+      - bbc-node.env
+    environment:
+      - MONIKER=bbc-node4
+    networks:
+      binance:
+        ipv4_address: 172.18.1.4
+
+networks:
+  binance:
+    name: binance
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
